@@ -1,0 +1,18 @@
+Authorization
+
+1. Create authorization URL.
+https://accounts.spotify.com/authorize
+
+Parameters required in auth url:
+- client_id: 1a9068e5a02c4897adb142f295edfe75
+- response_type
+- redirect-uri
+
+- scope: // a space to list all the diff scopes, %20 = space
+- streaming%20 // play songs on the account
+- user-read-email%20 // access email
+- user-read-private%20 // required to access user information
+- user-library-read%20 // determine if song is in user fav library
+- user-library-modify%20 // add songs to fav
+- user-read-playback-state%20 // figure out what song is playing
+- user-modify-playback-state // modify which song is playing
