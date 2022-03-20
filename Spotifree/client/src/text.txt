@@ -1,5 +1,3 @@
-Authorization
-
 1. Create authorization URL.
 https://accounts.spotify.com/authorize
 
@@ -16,3 +14,67 @@ Parameters required in auth url:
 - user-library-modify%20 // add songs to fav
 - user-read-playback-state%20 // figure out what song is playing
 - user-modify-playback-state // modify which song is playing
+
+2. Logged in after clicking button
+- convert the chunk of code into a token to authenticate all requests needed
+- use Spotify Web Api Node library, allows calling the spotify API more easily
+https://github.com/thelinmichael/spotify-web-api-node
+
+Authorization
+Supplying an access token is required for all requests to the Spotify API. This wrapper supports three authorization flows - The Authorization Code flow (signed by a user), the Client Credentials flow (application authentication - the user isn't involved), and the Implicit Grant Flow (For completely clientside applications). See Spotify's Authorization guide for detailed information on these flows.
+
+Authorization code flow
+With the application created and its redirect URI set, the only thing necessary for the application to retrieve an authorization code is the user's permission. Which permissions you're able to ask for is documented in Spotify's Using Scopes section.
+
+In order to get permissions, you need to direct the user to Spotify's Accounts service. Generate the URL by using the wrapper's authorization URL method.
+
+The example below uses a hardcoded authorization code, retrieved from the Accounts service as described above.
+
+var credentials = {
+  clientId: 'someClientId',
+  clientSecret: 'someClientSecret',
+  redirectUri: 'http://www.michaelthelin.se/test-callback'
+};
+
+var spotifyApi = new SpotifyWebApi(credentials);
+
+// The code that's returned as a query parameter to the redirect URI
+var code = 'MQCbtKe23z7YzzS44KzZzZgjQa621hgSzHN';
+
+// Retrieve an access token and a refresh token
+spotifyApi.authorizationCodeGrant(code).then(
+  function(data) {
+    console.log('The token expires in ' + data.body['expires_in']);
+    console.log('The access token is ' + data.body['access_token']);
+    console.log('The refresh token is ' + data.body['refresh_token']);
+
+    // Set the access token on the API object to use it in later calls
+    spotifyApi.setAccessToken(data.body['access_token']);
+    spotifyApi.setRefreshToken(data.body['refresh_token']);
+  },
+  function(err) {
+    console.log('Something went wrong!', err);
+  }
+);
+
+Server created in server folder.
+npm init -y to install package json file
+npm i express spotify-web-api-node
+
+Custom hook useAuth
+
+Syntax for refreshing token:
+Since the access token was set on the API object in the previous success callback, it's going to be used in future calls. As it was retrieved using the Authorization Code flow, it can also be refreshed.
+
+// clientId, clientSecret and refreshToken has been set on the api object previous to this call.
+spotifyApi.refreshAccessToken().then(
+  function(data) {
+    console.log('The access token has been refreshed!');
+
+    // Save the access token so that it's used in future calls
+    spotifyApi.setAccessToken(data.body['access_token']);
+  },
+  function(err) {
+    console.log('Could not refresh access token', err);
+  }
+);
