@@ -1,24 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
-
-* {
-  box-sizing: border-box;
-}
-
 html {
   font-family: "Oxygen", sans-serif;
 }
-
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  height: 100vh;
+  margin-top: 30px;
+}
 body {
   margin: 0;
+  height: 100%;
   background-color: whitesmoke;
-}
-
-.centered {
-  margin: 3rem auto;
-  text-align: center;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  transition: background-color 0.5s ease;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  background: cover;
+  background-size: cover;
+  
 }
 
 .login {
@@ -27,7 +27,10 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  transition: background-color 0.5s ease;
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
+
 .loginbtn {
   background-color: #1DB954;
   width: 200px;
@@ -36,4 +39,135 @@ body {
   font-size: 20px;
   color: white;
   text-decoration: none;
+  z-index: 1;
+  display: flex;
+  justify-content:space-between;
+  flex-direction:column;
+  position: absolute;
+}
+span {
+  text-align: center;
+  display: block;
+  margin-top: 12px;
+}
+.searchbox{
+  height: 70px;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  margin: 30px;
+  align-items: center;
+  flex-grow: 2;
+  padding-left: 70px;
+  border: black;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-bottom: -30px;
+  margin-top: -50px;
+  background-image: url("./pics/audio-waves.png");
+  background-repeat: no-repeat;
+  background-position: 20px 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.searchresultslist {
+  margin-top: -50px;
+  margin: 50px;
+  width: 87%;
+  height: 500px;
+  border-radius: 10px;
+  overflow-y: auto;
+  background-color: whitesmoke;
+  opacity: 1;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.artist{
+  font-weight:0.5;
+}
+
+.tracklist {
+  display: flex;
+  height: 64px;
+  width: 95%;
+  margin-bottom: 20px;
+  margin-right: 50px;
+  margin-top: 20px;
+  border-radius: 10px;
+  align-items: center;
+  
+}
+
+.artist {
+  color: grey;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.title {
+  height: 30px;
+  width: 100%;
+  margin-top: 8px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.lyricscontainer {
+  text-align: center;
+  white-space: pre;
+  padding-top: 30px;
+}
+
+.image {
+  margin-left: 20px;
+  cursor: pointer;
+  
+}
+
+html, body, #app, #app>div {
+  height: 100%
+}
+
+.logintitle {
+  z-index: 1;
+  font-size: 180px;
+  color: white;
+  display: block;
+  margin-bottom: 300px;
+}
+
+.__1xc0f9k {
+  height: 80px;
+}
+
+._ContentRSWP {
+  margin: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.container2{
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 20px;
+  height: 800px;
+  width: 900px;
+  display: flex;
+  opacity: 0.9;
+  position: absolute;
+  z-index: -1;
+  margin-bottom: 80px;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.greeting {
+  font-size: 30px;
+  margin: auto;
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-top: 30px;
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 600px; /* Need a specific value to work */
 }

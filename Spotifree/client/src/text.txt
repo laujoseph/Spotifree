@@ -78,3 +78,8 @@ spotifyApi.refreshAccessToken().then(
     console.log('Could not refresh access token', err);
   }
 );
+
+Spotify has it's own playback function for premium users.
+The library is react-spotify-web-playback
+
+Library for lyrics: lyrics-finder
