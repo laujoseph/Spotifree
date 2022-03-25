@@ -2,15 +2,16 @@ import React from "react";
 
 const TrackSearchResult = ({track, chooseTrack}) => {
     const handlePlay=()=>{
+      console.log(track)
         chooseTrack(track)
     }
-
   return (
-  <div className="tracklist"onClick={handlePlay}>
+  <div className="tracklist">
         <img
+        alt="albumimage"
         className="image" 
         src={track.albumUrl}
-        
+        onClick={handlePlay}
         />
         <div>
         <div className="title" onClick={handlePlay}>{track.title}</div>

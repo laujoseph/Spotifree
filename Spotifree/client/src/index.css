@@ -15,7 +15,7 @@ body {
   background-color: whitesmoke;
   align-items: center;
   transition: background-color 0.5s ease;
-  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  background:linear-gradient(120deg, #0F2027, #203A43, #2c5364);
   background: cover;
   background-size: cover;
   
@@ -79,7 +79,6 @@ span {
   overflow-y: auto;
   background-color: whitesmoke;
   opacity: 1;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -170,4 +169,99 @@ html, body, #app, #app>div {
   margin-left: auto; 
   margin-right: auto; 
   width: 600px; /* Need a specific value to work */
+}
+
+.userprofile {
+  position: absolute;
+  height: 120px;
+  width: 300px;
+  margin-right: 1300px;
+  margin-bottom: 760px;
+  background-color: whitesmoke;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  border-radius: 20px;
+}
+
+.profilepic {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 17px
+}
+
+.rpheader{
+  font-size: 27px;
+  padding: 20px;
+  text-align: left;
+}
+.greetingtext {
+  width: 180px;
+  text-align: center;
+  position: absolute;
+  margin-left: 100px;
+  margin-top: -100px;
+}
+
+.modalprofilepic {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin-left: 95px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.profilelink {
+  color: rgb(42, 163, 42);
+}
+.textwrapper {
+  text-align: center;
+}
+
+.recentlyplayed {
+  height: 800px;
+  width: 350px;
+  position: absolute;
+  margin-bottom: 80px;
+  margin-left: 1300px;
+  background: whitesmoke;
+  overflow-y: auto;
+  text-align: center;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  border-radius: 20px;
+}
+.rptracks {
+  font-size: 15px;
+  text-align: left;
+  margin-left: 20px;
+  float: right;
+  
+}
+
+.rpwrap {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  
+}
+.rptext {
+  margin-left: 10px;
+}
+
+.recentlyplayed::-webkit-scrollbar {
+  display: none;
+}
+
+.grey {
+  color: grey;
 }

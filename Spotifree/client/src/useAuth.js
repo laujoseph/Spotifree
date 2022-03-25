@@ -9,7 +9,7 @@ const useAuth = (code) => {
   useEffect(() => {
     axios
       .post("http://localhost:3001/login", {
-        code, //posting code to this url route
+        code, //posting code to this end point
       })
       .then(res => {
         // access token is required for requests
@@ -18,7 +18,7 @@ const useAuth = (code) => {
         setExpiresIn(res.data.expiresIn);
         // pushState removes the excess codes in the URL
         window.history.pushState({}, null, "/");
-      }) // redirects to login page if there's an error
+      }) // redirects to login page if there's an error concerning the auth code
       .catch(() => {
         window.location = "/";
       });
@@ -32,14 +32,13 @@ const useAuth = (code) => {
     const interval = setInterval(() => {
       axios
         .post("http://localhost:3001/refresh", {
-          refreshToken, //posting code to this url route
+          refreshToken, 
         })
         .then((res) => {
           setAccessToken(res.data.accessToken);
           setExpiresIn(res.data.expiresIn);
-          // pushState removes the excess codes in the URL
           window.history.pushState({}, null, "/");
-        }) // redirects to login page if there's an error
+        }) 
         .catch(() => {
           window.location = "/";
         });

@@ -6,6 +6,7 @@ const lyricsFinder = require("lyrics-finder")
 const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
+// to solve cors issues
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -64,6 +65,7 @@ app.post("/login", (req, res) => {
     });
 });
 
+//lyrics finder API
 app.get('/lyrics', async (req, res)=>{
   const lyrics = await lyricsFinder(req.query.artist, req.query.track) || "Woops there's no lyrics for this song sorry!"
   res.json({ lyrics })

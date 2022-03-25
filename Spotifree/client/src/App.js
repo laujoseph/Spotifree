@@ -7,6 +7,7 @@ import MainPage from "./MainPage"
 const code = new URLSearchParams(window.location.search).get("code")
 
 function App() {
+  // if code is available, render the main page
   return code ? <MainPage code={code} /> : <Login />
 }
 
