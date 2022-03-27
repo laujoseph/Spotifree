@@ -1,7 +1,9 @@
+require('dotenv').config()
 const express = require("express");
 const SpotifyWebApi = require("spotify-web-api-node");
 const cors = require("cors")
 const lyricsFinder = require("lyrics-finder")
+require('dot')
 // bodyParser() is required to make form data available in req.body
 const bodyParser = require("body-parser");
 const app = express();
@@ -14,9 +16,9 @@ app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken;
   console.log('hi')
   const spotifyApi = new SpotifyWebApi({
-    redirectUri: "http://localhost:3000",
-    clientId: "1a9068e5a02c4897adb142f295edfe75",
-    clientSecret: "c5d2af13e8ce425590c76f6a7892ee3d",
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
     refreshToken,
   });
 
@@ -43,9 +45,9 @@ app.post("/login", (req, res) => {
   const code = req.body.code;
   // Credentials
   const spotifyApi = new SpotifyWebApi({
-    redirectUri: "http://localhost:3000",
-    clientId: "1a9068e5a02c4897adb142f295edfe75",
-    clientSecret: "c5d2af13e8ce425590c76f6a7892ee3d",
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
   });
   // Retrieve an access token and a refresh token
   spotifyApi
